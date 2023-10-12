@@ -1,4 +1,4 @@
-<link
+<!--  <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 />
@@ -31,5 +31,58 @@
     >
       {{ suggestion }}
     </div>
+  </div>
+  <div class="search-results">
+    <div *ngFor="let result of searchResults$ | async" class="result">
+      {{ result }}
+    </div>
+  </div>
+</div> -->
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+
+<div class="container">
+  <div class="search-input">
+    <input
+      type="search"
+      class="search"
+      name="search"
+      [(ngModel)]="searchQuery"
+      placeholder="Search"
+      (input)="updateSuggestions()"
+    />
+    <button (click)="toggleDirection()" class="toggle-button">
+      <i
+        class="fa"
+        [ngClass]="{
+          'fa-arrow-up': !isAscending,
+          'fa-arrow-down': isAscending
+        }"
+      ></i>
+    </button>
+  </div>
+  <div class="suggestions" *ngIf="showSuggestions && suggestions.length > 0">
+    <div
+      *ngFor="let suggestion of suggestions"
+      class="suggestion"
+      (click)="selectSuggestion(suggestion)"
+    >
+      {{ suggestion }}
+    </div>
+  </div>
+  <div class="search-results">
+    <ng-container *ngFor="let suggestion of suggestions">
+      <div *ngIf="searchResults[suggestion]" class="result">
+        <div
+          *ngFor="let result of searchResults[suggestion]"
+          class="result-item"
+        >
+          {{ result }}
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>
