@@ -9,8 +9,9 @@ export class AppComponent {
   title = 'todolist';
   searchQuery = '';
   showData = true;
+  showNewComponent = false;
 
-  toggleData() {
-    this.showData = !this.showData;
+  loadNewComponent() {
+    this.showNewComponent = true;
   }
 }

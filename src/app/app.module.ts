@@ -10,9 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { SearchbarComponent } from './search-bar/search-bar.component';
+import { NewComponent } from './new/new.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchbarComponent],
+  declarations: [AppComponent, SearchbarComponent, NewComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
