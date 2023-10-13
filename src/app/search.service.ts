@@ -1,28 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { BehaviorSubject } from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class SearchService {
-//   private searchResultsSubject = new BehaviorSubject<string[]>([]);
-//   searchResults$ = this.searchResultsSubject.asObservable();
-
-//   fetchSearchResults(query: string) {
-//     // In a real application, you would make an HTTP request to fetch search results.
-//     // For this example, we'll simulate it with a delay.
-//     setTimeout(() => {
-//       const searchResults = [
-//         'Result 1 for ' + query,
-//         'Result 2 for ' + query,
-//         'Result 3 for ' + query,
-//         'Result 4 for ' + query,
-//         'Result 5 for ' + query,
-//       ];
-//       this.searchResultsSubject.next(searchResults);
-//     }, 1000); // Simulate a 1-second delay
-//   }
-// }
 
 
 import { Injectable } from '@angular/core';
@@ -33,6 +8,26 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SearchService {
   private searchResultsSubject = new BehaviorSubject<string[]>([]);
+  private searchQuery: string = '';
+
+  private searchResults: { [key: string]: string[] } = {};
+
+  getSearchQuery(): string {
+    return this.searchQuery;
+  }
+
+  setSearchQuery(query: string) {
+    this.searchQuery = query;
+  }
+
+  getSearchResults(): { [key: string]: string[] } {
+    return this.searchResults;
+  }
+
+  setSearchResults(query: { [key: string]: string[] }) {
+    this.searchResults = query;
+  }
+
   searchResults$ = this.searchResultsSubject.asObservable();
 
   fetchSearchResults(query: string): Observable<string[]> {

@@ -6,15 +6,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./new.component.scss'],
 })
 export class NewComponent {
-  @Output() dataEmitted = new EventEmitter<string>();
-
-
-  constructor(private router: Router) { }
-  // This function can be called to emit data to the parent component
-  emitData() {
-    const data = 'Data from NewComponent';
-    this.dataEmitted.emit(data);
-  }
 
 
 

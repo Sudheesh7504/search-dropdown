@@ -12,6 +12,7 @@
       [(ngModel)]="searchQuery"
       placeholder="Search"
       (input)="updateSuggestions()"
+      (input)="updateSearchQuery()"
     />
     <button (click)="toggleDirection()" class="toggle-button">
       <i

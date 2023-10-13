@@ -11,7 +11,9 @@ export class AppComponent {
   showData = true;
   showNewComponent = false;
 
-  loadNewComponent() {
-    this.showNewComponent = true;
+
+  toggleData() {
+    this.showData = !this.showData;
   }
+
 }
