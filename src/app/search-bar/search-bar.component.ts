@@ -23,13 +23,13 @@ export class SearchbarComponent implements OnInit {
 
   constructor(private searchService: SearchService
   ) {
-    this.searchQuery = this.searchService.getSearchQuery();
+    this.searchQuery = this.searchService.searchQuery;
     this.searchResults = this.searchService.getSearchResults();
 
   }
 
   updateSearchQuery() {
-    this.searchService.setSearchQuery(this.searchQuery);
+    this.searchService.searchQuery = this.searchQuery;
     this.searchService.setSearchResults(this.searchResults);
   }
 
@@ -72,7 +72,7 @@ export class SearchbarComponent implements OnInit {
 
   selectSuggestion(suggestion: string) {
 
-    this.searchService.setSearchQuery(suggestion);
+    this.searchService.searchQuery = suggestion;
     // this.searchService.setSearchResults(suggestion);
     this.searchQuery = suggestion;
 

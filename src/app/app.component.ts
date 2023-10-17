@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todolist';
+  login = false;
   searchQuery = '';
   showData = true;
   showNewComponent = false;

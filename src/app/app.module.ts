@@ -11,9 +11,11 @@ import { FormsModule } from '@angular/forms';
 
 import { SearchbarComponent } from './search-bar/search-bar.component';
 import { NewComponent } from './new/new.component';
+import { HoverDirective } from './hover.directive';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchbarComponent, NewComponent],
+  declarations: [AppComponent, SearchbarComponent, NewComponent, HoverDirective, ContentComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

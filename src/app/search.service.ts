@@ -8,16 +8,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class SearchService {
   private searchResultsSubject = new BehaviorSubject<string[]>([]);
-  private searchQuery: string = '';
+  private _searchQuery: string = '';
 
   private searchResults: { [key: string]: string[] } = {};
 
-  getSearchQuery(): string {
-    return this.searchQuery;
+  get searchQuery(): string {
+    return this._searchQuery;
   }
 
-  setSearchQuery(query: string) {
-    this.searchQuery = query;
+  set searchQuery(query: string) {
+    this._searchQuery = query;
   }
 
   getSearchResults(): { [key: string]: string[] } {

@@ -5,6 +5,23 @@
 
   <button routerLink="/old">old</button>
   <button routerLink="/new">new</button>
+  <button routerLink="/child">child</button>
 
   <router-outlet></router-outlet>
 </div>
+
+<div appHover>
+  <p>this is a demo about hostlisstener decorartor</p>
+</div>
+
+<ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6]">
+  <div *ngIf="i % 2 == 0">{{ i }}</div>
+</ng-container>
+
+<!-- <div *ngIf="login; else temp">logged in success</div>
+<ng-template #temp> skskxjskxk </ng-template> -->
+
+<div *ngTemplateOutlet!="temp">logged in success</div>
+<ng-template #temp> skskxjskxk </ng-template>
+
+<div>this is parent component</div>
